@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lexend Mega", sans-serif;
+}
+
+:root {
+  --base-border: 2px solid black;
+}
+
+body {
+  background-color: #d60029;
+  height: 100vh;
+  padding: 25px 10%;
+  display: flex;
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  background-color: rgb(225, 225, 225);
+  padding: 30px;
+  border-radius: 15px;
+  border: var(--base-border);
+  box-shadow: 5px 5px 0px black;
+
+  h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="submit"],
+  input[type="button"] {
+    padding: 0.5em 0.7em;
+    border-radius: 0.5em;
+    border: var(--base-border);
+    box-shadow: 2px 2px 0px black;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    background-color: white;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  app-dropdown {
+    max-height: 100px;
+    margin-bottom: 20px;
+    transition: all 0.2s, opacity 0.2s 0.2s;
+  }
+
+  input[type="password"].hidden {
+    opacity: 0;
+    padding: 0;
+    margin-bottom: 0;
+    max-height: 0;
+    transform: scaleY(0);
+    transition: all 0.2s 0.2s, opacity 0.2s;
+  }
+
+  input[type="submit"],
+  input[type="button"] {
+    background-color: rgb(44, 44, 44);
+    color: white;
+    font-weight: bold;
+    width: auto;
+    cursor: pointer;
+    padding: 0.5em 1em;
+  }
+
+  input[type="submit"]:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+
+  input[type="button"]:hover,
+  input[type="submit"]:not(:disabled):hover {
+    background-color: rgb(57, 57, 57);
+  }
+
+  input[type="checkbox"] {
+    appearance: none;
+    display: flex;
+    width: 25px;
+    height: 25px;
+    align-content: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 0px black;
+    background-color: white;
+  }
+
+  input[type="checkbox"]::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 5px;
+    background-color: rgb(251, 243, 88);
+    transition: opacity 0.2s ease-out;
+  }
+
+  input[type="checkbox"]:checked::before {
+    opacity: 1;
+  }
+
+  .private {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+}
+
+.board {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .btn {
+    background-color: rgb(44, 44, 44);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    width: auto;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    border: var(--base-border);
+    box-shadow: 2px 2px 0px black;
+  }
+
+  .btn:hover {
+    background-color: rgb(57, 57, 57);
+  }
+
+  .grid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 15px;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 600px;
+    width: 100%;
+    background-color: rgb(225, 225, 225);
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: var(--base-border);
+    box-shadow: 5px 5px 0px black;
+    gap: 10px;
+  }
+
+  h3 {
+    position: relative;
+    left: 8px;
+    top: 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  .tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    user-select: none;
+    min-height: 30px;
+    border-radius: 5px;
+    background-color: rgb(208, 208, 208);
+  }
+
+  .btn-add-task {
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgb(68, 68, 68);
+  }
+
+  .btn-add-task:hover {
+    color: rgb(100, 100, 100);
+    transform: scale(1.05);
+  }
+
+  .new-task {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0px;
+
+    input[type="text"] {
+      padding: 0.5em 0.7em;
+      border-radius: 0.5em;
+      border: var(--base-border);
+      box-shadow: 2px 2px 0px black;
+      outline: none;
+      font-size: 16px;
+      width: 100%;
+      background-color: rgb(255, 252, 196);
+    }
+
+    input[type="submit"],
+    input[type="button"] {
+      background-color: rgb(44, 44, 44);
+      color: white;
+      font-weight: bold;
+      width: auto;
+      cursor: pointer;
+      padding: 0.5em 1em;
+      border-radius: 0.5em;
+      border: var(--base-border);
+      box-shadow: 2px 2px 0px black;
+    }
+
+    input[type="submit"]:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    input[type="button"]:hover,
+    input[type="submit"]:not(:disabled):hover {
+      background-color: rgb(57, 57, 57);
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  .board {
+    .grid {
+      flex-direction: column;
+    }
+  }
+}
+
+.task {
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  border: var(--base-border);
+  box-shadow: 2px 2px 0px black;
+  cursor: grab;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task:hover {
+  background-color: rgb(255, 252, 196);
+}
+
+.btn-remove {
+  background-color: transparent;
+  border: none;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
+.btn-remove:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dragging,
+.preview {
+  background-color: rgb(251, 243, 88);
+}

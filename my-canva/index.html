@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Canva</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon/icon.png" type="image/x-icon">
+</head>
+
+<body onload="main()">
+    <form id="load-form" style="display: none;" class="container" onsubmit="load(event)">
+        <h2>CANVA BOARD</h2>
+        <app-dropdown placeholder="Choose a Board"></app-dropdown>
+        <input id="load-password" class="hidden" type="password" placeholder="Password">
+        <input id="btn-load" type="submit" value="Load">
+    </form>
+
+    <form id="create-form" style="display: none;" class="container" onsubmit="create(event)" autocomplete="off">
+        <h2>NEW BOARD</h2>
+        <input id="title" type="text" placeholder="Title" required minlength="3" maxlength="64"
+            pattern="[A-Za-z]+[A-Za-z\d]*$" autocomplete="off">
+        <input id="allias" type="text" placeholder="Allias" required minlength="3" maxlength="64"
+            pattern="[A-Za-z]+[A-Za-z\d]*$" autocomplete="off">
+        <div class="private">
+            <input id="private" type="checkbox">
+            <label for="private">Private</label>
+        </div>
+        <input id="new-password" type="password" placeholder="Password" autocomplete="off"
+            pattern="^(?=.*[A-Z])(?=.*[0-9]).{8,}$">
+        <div>
+            <input type="button" value="Cancel" onclick="hideCreateForm()">
+            <input id="btn-create" type="submit" value="Create">
+        </div>
+    </form>
+
+    <div class="board">
+
+    </div>
+
+    <script src="component/dropdown/dropdown.js"></script>
+    <script src="scripts/board.js"></script>
+    <script src="scripts/load-board.js"></script>
+    <script src="scripts/new-board.js"></script>
+    <script src="scripts/dragable.js"></script>
+    <script src="scripts/rainbow.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
